@@ -47,6 +47,8 @@ namespace CerditCardThreads
 			{
 				endpoints.MapControllers();
 			});
+
+            app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 		}
 	}
 }

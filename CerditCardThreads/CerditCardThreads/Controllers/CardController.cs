@@ -1,4 +1,6 @@
-﻿using CerditCardThreads.Services;
+﻿using CerditCardThreads.Models;
+using CerditCardThreads.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -15,7 +17,7 @@ namespace CerditCardThreads.Controllers
 		}
 
 		[HttpPost("amount")]
-		public ActionResult<List<string>> MakePayment([FromQuery] double amount)
+		public ActionResult<string> MakePayment([FromQuery] double amount)
 		{
 			return Ok(cardService.MakePayment(amount));
 		}

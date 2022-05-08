@@ -4,34 +4,29 @@ using System.Threading;
 
 namespace CerditCardThreads.Models
 {
-    public class Card
+    public static class Card
     {
-	    public double Limit { get; private set; }
-        static readonly object locker = new object();
+        public static double limit = 10000;
+        private static readonly object locker = new object();
 
-        //private Semaphore semaphore = new Semaphore(0, 1);
-
-        public Card(double limit)
+	    public static string MakePayment(double amount)
         {
-            Limit = limit;
-        }
-
-	    public string MakePayment(double amount, int username)
-        {
-			//semaphore.WaitOne();
-
 			lock (locker)
 			{
-                string result = "";
+                string response;
 
-                if (amount <= Limit)
+                if (amount <= limit)
                 {
-			        Limit -= amount;
-                    result += $"User: {username} payed {amount}. Limit: {Limit}";
-                } 
-			
-                //semaphore.Release();
-                return result;
+			        limit -= amount;
+                    response = $"Успешно плащане. Лимит: ${limit}";
+                }
+                else
+                {
+                    response = $"Надвишен лимит. Лимит: ${limit}";
+                }
+
+                Thread.Sleep(1000);
+                return response;
 			}
         }
     }
