@@ -9,25 +9,31 @@ namespace CerditCardThreads.Models
         public static double limit = 10000;
         private static readonly object locker = new object();
 
-	    public static string MakePayment(double amount)
+	    public static CardResponse MakePayment(double amount)
         {
 			lock (locker)
 			{
-                string response;
+                CardResponse response;
 
                 if (amount <= limit)
                 {
 			        limit -= amount;
-                    response = $"Успешно плащане. Лимит: ${limit}";
+                    response = new CardResponse("successful", limit);
                 }
                 else
                 {
-                    response = $"Надвишен лимит. Лимит: ${limit}";
+                    response = new CardResponse("failed", limit);
                 }
 
                 Thread.Sleep(1000);
                 return response;
 			}
+        }
+
+        public static double Reset()
+        {
+            limit = 10000;
+            return limit;
         }
     }
 }

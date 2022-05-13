@@ -8,15 +8,4 @@ let makeRequest = async (id) => {
     console.log(`${id} - сума: $${amount} - ${result.data}`);
 };
 
-calculateTime = async (threads) => {
-    const start = Date.now();
-
-    await Promise.all(
-        [...Array(threads).keys()].map(makeRequest)
-    );
-
-    const end = Date.now() - start;
-    console.log(`Elapsed time: ${end / 1000} seconds`);
-}
-
-calculateTime(20);
+for (let i = 1; i <= 5; i++) makeRequest(i);

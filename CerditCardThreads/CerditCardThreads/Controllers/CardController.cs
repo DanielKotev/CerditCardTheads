@@ -16,10 +16,16 @@ namespace CerditCardThreads.Controllers
 			this.cardService = cardService;
 		}
 
-		[HttpPost("amount")]
-		public ActionResult<string> MakePayment([FromQuery] double amount)
+		[HttpPost("payment")]
+		public ActionResult<CardResponse> MakePayment([FromBody] CardRequest request)
 		{
-			return Ok(cardService.MakePayment(amount));
+			return Ok(cardService.MakePayment(request.Amount));
+		}
+
+		[HttpPost("reset")]
+		public ActionResult<double> Reset()
+		{
+			return Ok(cardService.Reset());
 		}
 	}
 }

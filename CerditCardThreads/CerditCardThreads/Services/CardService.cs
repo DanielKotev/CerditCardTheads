@@ -6,9 +6,14 @@ namespace CerditCardThreads.Services
 {
 	public class CardService
 	{
-		public string MakePayment(double amount)
+		public CardResponse MakePayment(double amount)
 		{
 			return Card.MakePayment(amount);
 		}
+
+		public double Reset()
+        {
+			return Card.Reset();
+        }
 	}
 }
