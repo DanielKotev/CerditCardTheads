@@ -1,0 +1,54 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    width: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid;
+    border-color: #fff;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px;
+    padding: 8px;
+    zoom: 125%;
+}
+
+.control {
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: #eafafc;
+    border-width: 1px;
+    border-style: #eafafc;
+    border-color: #eafafc;
+    box-shadow: 1px 1px 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    box-shadow: 1px 1px 2px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    padding: 2px;
+    border: 1px solid;
+    border-color: #ccc;
+    background-color: #eafafc;
+}
+
+td {
+    padding: 2px;
+    border: 1px solid;
+    border-color: #ccc;
+}

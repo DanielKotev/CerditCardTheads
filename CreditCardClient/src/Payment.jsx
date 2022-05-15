@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const STATUS_COLOR = {
-  pending: 'yellow',
-  successful: 'green',
-  failed: 'red',
+  pending: '#eaff3b',
+  successful: '#66ff6b',
+  failed: '#fd6262',
 }
 
 const Payment = ({ id, amount, setLimit }) => {

@@ -19,12 +19,12 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <div>
+    <div className='App'>
+      <div className='control'>
         <input value={input} onChange={e => setInput(e.target.value)}/>
         <button onClick={onStartClick}>Start</button>
       </div>
-      <div>
+      <div className='control'>
         <span>Limit: {limit}</span>
         <button onClick={onResetClick}>Reset</button>
       </div>
